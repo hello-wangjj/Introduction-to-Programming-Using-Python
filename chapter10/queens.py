@@ -8,6 +8,9 @@ def conflict(state,nextX):
 	for i in range(nextY):
 		 #如果下一个皇后的位置与当前的皇后位置相邻（包括上下，左右）
 		 #或在同一对角线上，则说明有冲突，需要重新摆放
+		  #if abs(state[i] - nextX) in (0, nextY - i):  
+		  #中的 (0, nextY - i):  指前面的数是否为 0 
+		  #或者 nextY - i 两者中的一个，并不是指处在某个范围里面。
 		if abs(state[i]-nextX) in (0,nextY-i):
 			return True
 	return False
@@ -31,4 +34,5 @@ def prettyprint(solution):
         print (line(pos))
 
 if __name__ == "__main__":
-    prettyprint(random.choice(list(queens(8))))
+	print(list(queens(8)))
+	prettyprint(random.choice(list(queens(8))))
