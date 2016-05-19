@@ -34,5 +34,5 @@ def prettyprint(solution):
         print (line(pos))
 
 if __name__ == "__main__":
-	print(list(queens(8)))
+	# print(list(queens(8)))
 	prettyprint(random.choice(list(queens(8))))
