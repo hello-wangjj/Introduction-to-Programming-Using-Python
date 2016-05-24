@@ -5,7 +5,7 @@ from tkinter import Canvas
 
 class StillClock(Canvas):
 	"""docstring for StillClock"""
-	def __init__(self):
+	def __init__(self,container):
 		super(StillClock, self).__init__()
 		# self.arg = arg
 		self.setCurrentTime()
@@ -32,7 +32,7 @@ class StillClock(Canvas):
 
 	def setSecond(self,second):
 		self.__second=second
-		second.delete()
+		self.delete()
 		self.drawClock()
 
 	def setCurrentTime(self):
@@ -54,7 +54,7 @@ class StillClock(Canvas):
 		self.create_text(width/2-radius+5,height/2,text='9',tags='clock')
 		self.create_text(width/2+radius-5,height/2,text='3',tags='clock')
 		self.create_text(width/2,height/2-radius+5,text='12',tags='clock')
-		self.create_text(width/2,height/2-radius+5,text='6',tags='clock')
+		self.create_text(width/2,height/2+radius-5,text='6',tags='clock')
 
 		xCenter=width/2
 		yCenter=height/2
@@ -66,16 +66,22 @@ class StillClock(Canvas):
 
 		minute=self.__minute
 		xMinute=xCenter+minuteHand*math.sin(minute*(2*math.pi/60))
-		yMinute=yCenter+minuteHand*math.cos(minute*(2*math.pi/60))
+		yMinute=yCenter-minuteHand*math.cos(minute*(2*math.pi/60))
 		self.create_line(xCenter,yCenter,xMinute,yMinute,fill='blue',tags='clock')
 
 		hour=self.__hour%12
 		xHour=xCenter+hourHand*math.sin((hour+minute/60)*(2*math.pi/12))
-		yHour=xCenter+hourHand*math.cos((hour+minute/60)*(2*math.pi/12))
+		yHour=xCenter-hourHand*math.cos((hour+minute/60)*(2*math.pi/12))
 		self.create_line(xCenter,yCenter,xHour,yHour,fill='green',tags='clock')
 
 		timestr=str(hour)+':'+str(minute)+':'+str(second)
 		self.create_text(width/2,height/2+radius+10,text=timestr,tags='clock')
 
 if __name__=="__main__":
-	StillClock()
+	window=tk.Tk()
+	window.title('clock')
+	c=StillClock(window)
+	c.pack()
+	c.drawClock()
+	window.mainloop()
+
