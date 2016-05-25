@@ -6,7 +6,7 @@ from tkinter import Canvas
 class StillClock(Canvas):
 	"""docstring for StillClock"""
 	def __init__(self,container):
-		super(StillClock, self).__init__()
+		super(StillClock, self).__init__(container)
 		# self.arg = arg
 		self.setCurrentTime()
 		self.drawClock()
@@ -71,7 +71,7 @@ class StillClock(Canvas):
 
 		hour=self.__hour%12
 		xHour=xCenter+hourHand*math.sin((hour+minute/60)*(2*math.pi/12))
-		yHour=xCenter-hourHand*math.cos((hour+minute/60)*(2*math.pi/12))
+		yHour=yCenter-hourHand*math.cos((hour+minute/60)*(2*math.pi/12))
 		self.create_line(xCenter,yCenter,xHour,yHour,fill='green',tags='clock')
 
 		timestr=str(hour)+':'+str(minute)+':'+str(second)
