@@ -3,6 +3,7 @@ import tkinter as tk
 class FigureCanvas(Canvas):
 	"""docstring for FigureCanvas"""
 	def __init__(self, container,figureType,filled=False,width=100,height=100):
+		#调用父类的初始化方法__init__()
 		super(FigureCanvas, self).__init__(container,width=width,height=height)
 		# self.arg = arg
 		self.__figuredType=figureType
