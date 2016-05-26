@@ -100,3 +100,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /chapter10/card
+/chapter12/test.py
+/chapter13/*.txt
+/chapter5/*.txt
