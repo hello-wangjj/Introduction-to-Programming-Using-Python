@@ -19,6 +19,9 @@ class AdressBook(object):
 	def __init__(self):
 		super(AdressBook, self).__init__()
 		# self.arg = arg
+
+		#!-----
+		#窗口设置
 		window=tk.Tk()
 		window.title('AdressBook')
 
@@ -60,6 +63,7 @@ class AdressBook(object):
 		if(len(self.addressList)>0):
 			self.setAddress()
 		window.mainloop()
+		#窗口
 
 
 
