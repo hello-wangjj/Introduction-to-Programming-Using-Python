@@ -8,23 +8,46 @@ def openFile():
 
 def showResult():
 	# pass
-	analyseFile(filename.get())
+	counts=analyseFile(filename.get())
+	text.delete(0.0,tk.END)
+	for i in range(len(counts)):
+		text.insert(tk.END,chr(ord('a')+i)+' appears '+str(counts[i])+('time' if counts[i]<2 else 'times')+'\n')
 
 def analyseFile(filename):
 	# pass
 	try:
 		infile=open(filename,'r')
 		counts=26*[0]
-		text.delete(0.0,tk.END)
+		# text.delete(0.0,tk.END)
 		for line in infile:
 			countLetters(line.lower(),counts)
-		for i in range(len(counts)):
-			text.insert(tk.END,chr(ord('a')+i)+' appears '+str(counts[i])+('time' if counts[i]<2 else 'times')+'\n')
+		# for i in range(len(counts)):
+		# 	text.insert(tk.END,chr(ord('a')+i)+' appears '+str(counts[i])+('time' if counts[i]<2 else 'times')+'\n')
 		infile.close()
+		return counts
 		# return counts
 	except IOError:
 		tkinter.messagebox.showwarning('Analyze File','File '+filename+' dose not exist')
 	# counts=analyseFile(filename.get)
+	# canvas.delete('line')
+	# bottomGap=10
+	# canvas.create_line(10,height-bottomGap,width-10,height-bottomGap,tag='line')
+	# barWidth=(width-20)/(len(counts))
+	# maxCount=int(max(counts))
+	# for i in range(len(counts)):
+	# 	canvas.create_rectangle(i*barWidth+10,(height-bottomGap)*(1-counts[i]/(maxCount+4)),
+	# 							(i+1)*barWidth+10,height-bottomGap,tag='line')
+	# 	canvas.create_text(i*barWidth+10+barWidth/2,(height-bottomGap)*(1-counts[i]/(maxCount+4))-8,
+	# 							text=chr(ord('a')+i),tag='line')
+		
+def countLetters(line,counts):
+	# pass
+	for ch in line:
+		if ch.isalpha():
+			counts[ord(ch)-ord('a')]+=1
+
+def drawHistogram():
+	counts=analyseFile(filename.get())
 	canvas.delete('line')
 	bottomGap=10
 	canvas.create_line(10,height-bottomGap,width-10,height-bottomGap,tag='line')
@@ -35,16 +58,6 @@ def analyseFile(filename):
 								(i+1)*barWidth+10,height-bottomGap,tag='line')
 		canvas.create_text(i*barWidth+10+barWidth/2,(height-bottomGap)*(1-counts[i]/(maxCount+4))-8,
 								text=chr(ord('a')+i),tag='line')
-		
-def countLetters(line,counts):
-	# pass
-	for ch in line:
-		if ch.isalpha():
-			counts[ord(ch)-ord('a')]+=1
-
-def drawHistogram():
-	analyseFile(filename.get())
-
 
 
 
