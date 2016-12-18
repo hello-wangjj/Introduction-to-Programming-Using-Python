@@ -12,9 +12,9 @@ s = 'abcdefghi'
 s1 = {x: randint(3, 6) for x in sample(s, randint(3, 6))}
 s2 = {x: randint(3, 6) for x in sample(s, randint(3, 6))}
 s3 = {x: randint(3, 6) for x in sample(s, randint(3, 6))}
-print(s1,s2,s3,sep='\n----\n')
+print(s1, s2, s3, sep='\n----\n')
 # one
-res=[]
+res = []
 for k in s1.keys():
     if k in s2.keys() and k in s3.keys():
         res.append(k)
@@ -22,4 +22,4 @@ for k in s1.keys():
 # the good one
 # map(dict.keys(),[s1,s2,s3])
 # reduce
-print(reduce(lambda a,b:a&b ,map(dict.keys,[s1,s2,s3])))
+print(reduce(lambda a, b: a & b, map(dict.keys, [s1, s2, s3])))
