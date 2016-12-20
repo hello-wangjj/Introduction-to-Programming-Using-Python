@@ -4,7 +4,7 @@ import requests
 from collections import Iterator, Iterable
 __author__ = 'wangjj'
 __mtime__ = '2016121920:07'
-__doc__='''
+__doc__ = '''
 可迭代对象
 '''
 headers = {
@@ -58,6 +58,29 @@ class WeatherIterable(Iterable):
     def __iter__(self):
         return WeatherIterator(self.cities)
 
-weather=WeatherIterable(['北京', '长春', '上海'])
+weather = WeatherIterable(['北京', '长春', '上海'])
+print(type(weather))
 for i in weather:
     print(i)
+
+
+class Weather(object):
+
+    def __init__(self, cities):
+        self.cities = cities
+
+    def get_weather(self, city):
+        global headers
+        r = requests.get(
+            'http://wthrcdn.etouch.cn/weather_mini?city=' +
+            city,
+            headers=headers)
+        data = r.json()['data']['forecast'][0]
+        return '{},{},{}'.format(city, data['low'], data['high'])
+
+    def __iter__(self):
+        for city in self.cities:
+            yield self.get_weather(city)
+
+for city in Weather(['北京', '长春', '上海']):
+    print(city)
