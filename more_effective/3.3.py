@@ -17,14 +17,14 @@ class PrimeNumbers(object):
     def is_prime_num(self, k):
         if k < 2:
             return True
-        for i in range(2, int(math.sqrt(k))+1):
+        for i in range(2, int(math.sqrt(k)) + 1):
             if k % i == 0:
                 return False
         return True
 
     def __iter__(self):
-        for k in range(self.start, self.end+1):
+        for k in range(self.start, self.end + 1):
             if self.is_prime_num(k):
                 yield k
-for x in PrimeNumbers(1,100):
+for x in PrimeNumbers(1, 100):
     print(x)
