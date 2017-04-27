@@ -21,3 +21,4 @@ if __name__ == '__main__':
     main()
     print(minNumberInRotateArray([3,4,5,1,2]))
     print(minNumberInRotateArray([1,1,1,0,1,1]))
+    print(minNumberInRotateArray([0,1,1,1,0]))
