@@ -19,4 +19,4 @@ class Solution:
             return True
         if not A or A.val != B.val:
             return False
-        return self.isSubtree(A.left,B.left) adn self.isSubtree(A.right,B.right)
+        return self.isSubtree(A.left,B.left) and self.isSubtree(A.right,B.right)
