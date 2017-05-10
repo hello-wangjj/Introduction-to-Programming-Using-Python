@@ -70,7 +70,8 @@ class Solution2:
         # find the random
         while cur:
             tmp = cur.next
-            if cur.random:tmp.random = cur.random.next
+            if cur.random:
+                tmp.random = cur.random.next
             cur = tmp.next
         # to two listNode
         cur = pHead
@@ -90,6 +91,8 @@ class Solution3:
         self.Random(pHead)
         return self.Connect(pHead)
     # 参考的是剑指offer书本的代码，先复制链表与原链表在一起，然后把复制任意指针，最后分成奇数和偶数的链表
+
+    # 复制链表，将复制的节点链接到原节点的后面
     def CloneNodes(self,pHead):
         pNode=pHead
         while pNode:
@@ -97,7 +100,7 @@ class Solution3:
             pCloned.next=pNode.next
             pNode.next=pCloned
             pNode=pCloned.next
-                           
+    # 将复制后的链表中的复制结点的random指针链接到被复制结点random指针的后一个结点,即B' 兄弟节点                                                                                                                                                              
     def Random(self,pHead):
         pNode=pHead
         while pNode:
@@ -105,7 +108,8 @@ class Solution3:
             if pNode.random:
                 pCloned.random=pNode.random.next
             pNode=pCloned.next
-             
+    
+    # 类似aAbBcCdD
     def Connect(self,pHead):
         pNode=pHead
         pClonedHead=None
@@ -120,3 +124,4 @@ class Solution3:
             pNode.next=pCloned.next
             pNode=pNode.next
         return pClonedHead
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
