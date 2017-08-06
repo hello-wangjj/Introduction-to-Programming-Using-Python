@@ -108,3 +108,7 @@ $RECYCLE.BIN/
 .idea/
 /more_effective/history
 hamlet.txt
+# 项目生成文件
+*.xlsx
+*.pdf
+*.dot
