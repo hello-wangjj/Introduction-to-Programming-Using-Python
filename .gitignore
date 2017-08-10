@@ -112,3 +112,6 @@ hamlet.txt
 *.xlsx
 *.pdf
 *.dot
+
+# 特地忽略的文件
+/RotationForest-master
