@@ -12,7 +12,7 @@ X = np.r_[np.random.randn(20, 2) - [2, 2], np.random.randn(20, 2) + [2, 2]]
 Y = [0] * 20 + [1] * 20
 clf = svm.SVC(kernel='linear')
 clf.fit(X, Y)
-
+print('clf:', clf)
 # get the separating hyper plane
 w = clf.coef_[0]
 a = -w[0] / w[1]
@@ -33,3 +33,4 @@ pl.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1], s=80, facecol
 pl.scatter(X[:, 0], X[:, 1], c=Y, cmap=pl.cm.Paired)
 pl.axis('tight')
 pl.show()
+
