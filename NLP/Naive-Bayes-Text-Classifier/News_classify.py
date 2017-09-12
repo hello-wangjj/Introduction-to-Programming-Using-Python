@@ -161,7 +161,7 @@ def main():
                                                                                                          test_size=0.2)
 
     # 生成stopwords_set
-    stopwords_file = path + '/stopwords_cn.txt'
+    stopwords_file = path + '/stop_words_cn.txt'
     stopwords_set = make_word_set(stopwords_file)
 
     # 文本特征提取和分类
