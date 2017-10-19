@@ -25,6 +25,7 @@ def main():
                 arrived.append(d[i])
                 continue
             elif d[i + j] == 0 or d[i + j] > d[i]:
+                d[i + j] = d[i] + 1
     if len(arrived) == 0:
         print(-1)
     else:
