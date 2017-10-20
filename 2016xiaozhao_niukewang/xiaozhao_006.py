@@ -34,3 +34,36 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+    """
+    链接：https://www.nowcoder.com/questionTerminal/74acf832651e45bd9e059c59bc6e1cbf
+来源：牛客网
+
+n = int(input())
+nums = list(map(int, input().split()))
+dp = [0xfffffff]*n
+for i in range(n-1, -1, -1):
+    for j in range(1, nums[i]+1):
+        dp[i] = min(dp[i], dp[i+j]+1 if i+j<n else 1)
+print(dp[0] if dp[0]<0xfffffff else -1)
+    """
+
+    """
+    链接：https://www.nowcoder.com/questionTerminal/74acf832651e45bd9e059c59bc6e1cbf
+来源：牛客网
+
+if __name__ == '__main__':
+    N = int(input())
+    nums = [int(x) for x in input().split()]
+ 
+    inf = float('inf')
+    dp = [inf for j in range(N+1)]  # 跳到第i个木桩需要的最少次数
+    dp[0] = 0  # 第0个木桩需要跳0次
+    for i in range(N):
+        j = 1
+        # 跳 j 步会跳到i+j，需要跳dp[i]+1次，不要跳出去
+        while j <= nums[i] and i+j <= N:
+            dp[i+j] = min(dp[i+j], dp[i]+1)
+            j += 1
+    print(dp[N] if dp[N] < inf else -1)
+    """
