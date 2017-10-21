@@ -129,3 +129,6 @@ hamlet.txt
 /tensorflow_learn/logs/
 /tensorflow_learn/MNIST_data/
 /tensorflow_learn/my_net
+*.jpg
+*.png
+*.bmp
