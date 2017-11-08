@@ -1,5 +1,7 @@
 import cv2
-import numpy
+import numpy as np
+import matplotlib.pyplot as plt
+
 
 __author__ = 'wangj'
 __date__ = '2017/11/02 21:03'
@@ -40,9 +42,22 @@ def img_roi():
         cv2.destroyAllWindows()
 
 
+def img_split_merge():
+    img = cv2.imread('1.jpg')
+    b,g,r = cv2.split(img)
+    img2 = cv2.merge([r,g,b])
+    plt.subplot(121);plt.imshow(img)
+    plt.subplot(122);plt.imshow(img2)
+    plt.show()
+    cv2.imshow('bgr image', img)  # expects true color
+    cv2.imshow('rgb image', img2)  # expects distorted color
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
 if __name__ == '__main__':
     main()
     use_numpy()
     get_image_info()
     img_roi()
-    split_img()
+    img_split_merge()
