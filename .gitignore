@@ -136,3 +136,6 @@ hamlet.txt
 *.mp4
 *.tif
 *.zip
+/ml_intro/ch8/IMDB/
+*.csv
+*.pkl
