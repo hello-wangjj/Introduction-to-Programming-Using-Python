@@ -139,3 +139,4 @@ hamlet.txt
 /ml_intro/ch8/IMDB/
 *.csv
 *.pkl
+/company/pso_optical_flow/*.txt
