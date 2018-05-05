@@ -136,7 +136,17 @@ hamlet.txt
 *.mp4
 *.tif
 *.zip
+*.pdf
 /ml_intro/ch8/IMDB/
 *.csv
 *.pkl
 /company/pso_optical_flow/*.txt
+/MNIST_data/cnnforMNIST/ckpt/
+/MNIST_data/make_data_set/data_set/
+/MNIST_data/make_data_set/images/
+/MNIST_data/MNIST_data
+/MNIST_data/test_images/
+/MNIST_data/v2/ckpt/
+/MNIST_data/v3/ckpt/
+/MNIST_data/v3/log/
+
